@@ -1,0 +1,56 @@
+## Website Deployment Guide for Oncosimis Biotech
+
+This guide outlines the steps to take your Oncosimis Biotech website live, including finalization, deployment, and potential enhancements.
+
+### 1. Pre-deployment Checklist
+
+Before deploying your website, ensure the following:
+
+*   **Content Review:** Thoroughly check all text, images, and data for accuracy, completeness, and grammar. Ensure all scraped content is correctly integrated and formatted.
+*   **Image Optimization:** While some images are from external CDNs, ensure any local images are optimized for web (compressed, appropriate formats like WebP where possible) to improve loading times.
+*   **Code Minification:** Minify HTML, CSS, and JavaScript files to reduce their size. This can be done manually or using build tools.
+*   **Responsiveness Testing:** Test the website on various devices (desktops, tablets, mobile phones) and browsers (Chrome, Firefox, Safari, Edge) to ensure consistent display and functionality.
+*   **Link Verification:** Check all internal and external links to ensure they are working correctly and lead to the intended destinations.
+*   **Form Functionality:** If any forms are added later, ensure they are connected to a backend service for submission handling.
+*   **SEO Best Practices:**
+    *   **Meta Tags:** Ensure `title` tags and `meta description` tags are unique and descriptive for each page (though this is a single-page app, the main `index.html` should have a good one).
+    *   **Alt Text:** Verify all `<img>` tags have descriptive `alt` attributes for accessibility and SEO.
+    *   **Semantic HTML:** Ensure proper use of HTML5 semantic elements (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`, etc.).
+*   **Accessibility (A11y):** Review for basic accessibility standards (e.g., sufficient color contrast, keyboard navigation, ARIA attributes if needed).
+
+### 2. Deployment Options
+
+For a static website like this, several deployment options are available. We recommend static site hosting for its simplicity, speed, and cost-effectiveness.
+
+*   **Static Site Hosting (Recommended):**
+    *   **GitHub Pages:** Free, integrates directly with GitHub repositories. Ideal for personal projects or simple company sites.
+    *   **Netlify:** Offers generous free tier, continuous deployment from Git, custom domains, HTTPS, and serverless functions (for forms).
+    *   **Vercel:** Similar to Netlify, popular for frontend frameworks, excellent developer experience.
+    *   **Firebase Hosting:** Google's hosting solution, fast, secure, and integrates with other Firebase services.
+    *   **AWS S3 + CloudFront:** Highly scalable and robust, but requires more configuration.
+*   **Shared Hosting:** Traditional web hosting where you upload files via FTP or a cPanel interface. Less performant than static site hosting but widely available.
+*   **Virtual Private Server (VPS) / Cloud Server:** Offers more control and flexibility but requires server administration knowledge.
+
+### 3. General Deployment Steps (for Static Site Hosting)
+
+1.  **Choose a Hosting Provider:** Select one of the recommended static site hosting platforms (e.g., Netlify, Vercel).
+2.  **Create an Account:** Sign up and connect your Git repository (e.g., GitHub, GitLab, Bitbucket) where your website code is stored.
+3.  **Configure Build Settings:** For this static site, the build command will likely be empty or `npm run build` if you introduce a build step later. The publish directory will be `site/` (or `.` if you move all contents to the root).
+4.  **Deploy:** Trigger the first deployment. Most platforms offer continuous deployment, meaning every push to your main branch will automatically trigger a new build and deploy.
+5.  **Set Up Custom Domain:** Configure your custom domain (e.g., `oncosimis.com`) with your chosen hosting provider. This usually involves updating DNS records.
+6.  **Enable HTTPS:** Most static site hosts provide free SSL certificates (via Let's Encrypt) automatically, ensuring your site is served securely over HTTPS.
+
+### 4. Post-deployment Enhancements
+
+After your site is live, consider these enhancements:
+
+*   **Analytics Integration:** Add Google Analytics, Matomo, or another analytics tool to track website traffic, user behavior, and engagement.
+*   **Performance Monitoring:** Regularly check your site's performance using tools like Google PageSpeed Insights, Lighthouse, or GTmetrix. Address any identified bottlenecks.
+*   **Security Headers:** Implement security headers (e.g., Content Security Policy - CSP) to protect against common web vulnerabilities.
+*   **Backup Strategy:** Establish a routine for backing up your website files and database (if you add one later).
+*   **SEO Monitoring:** Use Google Search Console to monitor your site's presence in Google Search results, identify crawl errors, and track keyword performance.
+*   **Content Delivery Network (CDN):** If your hosting provider doesn't include a CDN, consider using one (e.g., Cloudflare) to serve your assets faster to users worldwide.
+*   **Contact Form Backend:** If you add a contact form, integrate it with a reliable backend service (e.g., Netlify Forms, Formspree, or a custom serverless function) to receive submissions.
+*   **Favicon:** Ensure you have a favicon for your website for better branding and user experience.
+
+By following these steps, you can successfully deploy your Oncosimis Biotech website and ensure its continued performance and growth.
